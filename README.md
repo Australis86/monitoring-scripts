@@ -4,7 +4,7 @@ A selection of scripts used for system monitoring.
 
 ## Dependencies
 
-TBA.
+* smartmontools is required for some functionality
 
 ## Installation and Configuration
 
@@ -12,7 +12,9 @@ TBA.
 
 ## Usage
 
-TBA.
+### startup_email.sh
+
+This script is intended to be called shortly after startup and will send a brief summary of the system (i.e. networ configuration, disk space and HDD SMART status) to a selected recipient.
 
 ## History
 

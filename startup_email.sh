@@ -11,7 +11,7 @@
 LOCALDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 LOGFILE="${LOCALDIR}/startup_email.log"
 ECONTENTS="${LOCALDIR}/startup_email.contents"
-RECEIPIENT="" # Email address for the receipient
+RECIPIENT="" # Email address for the RECIPIENT
 SUBJECT="[hostname] has started up" # Email subject - change as required
 ROUTE_TARGET="google.com" # Traceroute target - change as required
 
@@ -47,7 +47,7 @@ tracert -h 5 -d ${ROUTE_TARGET} | grep -v 'Trace' | grep -v 'hops' | grep -v "^$
 
 # Check local storage
 echo '<br /><br /><hr /><b>Storage Space:</b><hr />' >> ${ECONTENTS}
-df -h /cygdrive/* >> ${ECONTENTS}
+df -h >> ${ECONTENTS}
 
 # Check storage devices
 echo "Scanning storage devices..." >> ${LOGFILE}
@@ -68,7 +68,9 @@ echo '</pre></font>
 
 # Prepare the email
 echo "Sending email..." >> ${LOGFILE}
-/usr/bin/python ${LOCALDIR}/mail.py -s ${SUBJECT} -r ${RECEIPIENT} -l ${ECONTENTS} >> ${LOGFILE}
+
+# This line could be modified to use a different email script or utility
+python ${LOCALDIR}/mailutils/mail.py -s ${SUBJECT} -r ${RECIPIENT} -l ${ECONTENTS} >> ${LOGFILE}
 
 # Remove the email contents
 rm -f ${ECONTENTS}
