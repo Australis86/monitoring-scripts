@@ -17,7 +17,7 @@ A selection of scripts used for system monitoring.
 
 ### startup_email.sh
 
-This script is intended to be called shortly after startup and will send a brief summary of the system (i.e. networ configuration, disk space and HDD SMART status) to a selected recipient.
+This script is intended to be called shortly after startup and will send a brief summary of the system (i.e. network configuration, disk space and HDD SMART status) to a selected recipient.
 
 ## History
 
