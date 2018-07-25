@@ -46,8 +46,11 @@ if [ -x "$(command -v ipconfig)" ]; then
 elif [ -x "$(command -v ifconfig)" ]; then
 	# Linux
 	ifconfig | grep -E 'flags|inet|ether|loop' >> ${ECONTENTS}
+elif [ -x "$(command -v /sbin/ifconfig)" ]; then
+	# Linux
+	/sbin/ifconfig | grep -E 'flags|inet|ether|loop' >> ${ECONTENTS}
 else
-	echo "No tool for querying networ interfaces available." >> ${LOGFILE}
+	echo "No tool for querying network interfaces available." >> ${LOGFILE}
 fi
 
 # Check the route to a nearby network
